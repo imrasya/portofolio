@@ -14,13 +14,23 @@ export const Projects = [
     name: 'WhatsApp Bot',
     slug: 'Wa Bot',
     img: 'wabot',
-    demo: 'https://api.whatsapp.com/send?phone=+62812-3326-9919&text=.menu',
+    demo: 'https://api.whatsapp.com/send?phone=+62859-5638-6476&text=.menu',
     sourceCode: 'https://github.com/imrasya/RsyBot',
     description:
-      'WhatsApp Bot With Node Js, Use Baileys (Md) Multi Device. This Bot Can Download YouTube Or Tiktok, And there are RPG games',
+      'WhatsApp Bot With Node Js, Use Baileys (Md) Multi Device. This Bot Can Download YouTube Or Tiktok, And Management Group ',
   },
   {
     id: 3,
+    name: 'Tic-Tac-Toe',
+    slug: 'Simple Game Tic-Tac-Toe',
+    img: 'ttt',
+    demo: 'https://tic.deanry.my.id',
+    sourceCode: 'https://github.com/imrasya/tic-tac-toe',
+    description:
+      'Simple Game Tictactoe With Html Css And Javascript',
+  },
+  {
+    id: 4,
     name: 'Coming Soon Project',
     slug: 'coming-soon-project',
     img: 'coming-soon',
