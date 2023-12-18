@@ -26,7 +26,7 @@ const About = () => {
 
         <motion.div {...ContentAnimation} className="relative order-1 my-10 w-3/4 text-justify md:order-2 md:my-0 md:w-1/4">
           <p className="text-md font-light text-primary-light">
-            {`Hi, my name is Rasya. I'm Developer of Rsy - Bot WhatsApp. I'm love coding because it's fun, writing lines of code to produce something. I'm like about computers since 2 years ago. I live in Surabaya, Indonesia. I was born on July 10, 2007, yeah I'm 15 years old. I'm like listening to music, especially slow or speed up genres, i also like cats :3`}
+            {`Hi, my name is Rasya. I'm FrontEnd Developer I'm love coding because it's fun, writing lines of code to produce something. I'm like about computers since 2 years ago. I live in Surabaya, Indonesia. I was born on July 10, 2007, yeah I'm 16 years old. I'm like listening to music, especially slow or speed up genres, i also like cats :3`}
           </p>
         </motion.div>
       </section>

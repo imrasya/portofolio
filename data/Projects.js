@@ -1,6 +1,16 @@
 export const Projects = [
   {
     id: 1,
+    name: 'Madigital',
+    slug: 'madigital',
+    img: 'madigital',
+    demo: 'https://epsiteam.my.id/',
+    sourceCode: 'https://deanry.my.id',
+    description:
+      'Majalah digital by epsiteam, this is magazine digital (online) work with 5 people team',
+  },
+  {
+    id: 2,
     name: 'Simple Qr Code Generator',
     slug: 'simpleqr',
     img: 'simpleqr',
@@ -8,16 +18,6 @@ export const Projects = [
     sourceCode: 'https://github.com/imrasya/simpleqrcode',
     description:
       'Simple Qr Code Generator With Api, Source Code Original (coding nepal)',
-  },
-  {
-    id: 2,
-    name: 'WhatsApp Bot',
-    slug: 'Wa Bot',
-    img: 'wabot',
-    demo: 'https://api.whatsapp.com/send?phone=+62859-5638-6476&text=.menu',
-    sourceCode: 'https://github.com/imrasya/RsyBot',
-    description:
-      'WhatsApp Bot With Node Js, Use Baileys (Md) Multi Device. This Bot Can Download YouTube Or Tiktok, And Management Group ',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const Projects = [
       'Simple Game Tictactoe With Html Css And Javascript',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Coming Soon Project',
     slug: 'coming-soon-project',
     img: 'coming-soon',
