@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Edits } from '@/data/Edits';
 import { useEffect, useRef } from 'react';
 import { ProjectCardAnimation, FadeAnimation } from '@/components/Animations';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Works = () => {
   const ref = useRef(null);
@@ -20,37 +22,55 @@ const Works = () => {
   return (
     <Layouts pageTitle=" | Edits">
       <section className="relative flex h-[450vh] items-center justify-center">
-        <motion.span {...FadeAnimation} className="title-page">
+        {/* <motion.span {...FadeAnimation} className="title-page">
           EDITS
-        </motion.span>
+        </motion.span> */}
 
         <div className="fixed left-1/2 top-[30%] flex md:left-1/4" ref={ref}>
-          {Edits.map((edits) => (
-            <div key={edits.id}>
-              <motion.div {...ProjectCardAnimation} className="mx-12 flex w-72 flex-col items-center justify-center rounded-md border-4 border-primary-light bg-primary-light p-[2px]">
-                <Link href={`/edits/${edits.slug}`}>
-                  <motion.a {...FadeAnimation} className="relative h-44 w-full overflow-hidden rounded-md bg-primary-dark">
-                    <Image src={`/images/edits/${edits.img}.png`} layout="fill" alt={edits.name} className="relative transition-all duration-500 hover:scale-125" />
-                  </motion.a>
-                </Link>
-                <div className="py-2 text-md font-small text-primary-dark">{edits.name}</div>
-                <div className="flex mx-auto px-3 pt-1 pb-4">
-                  <a href={edits.videos} target="_blank" rel="noreferrer">
-                    <span className="rounded-md border-2 border-primary-dark px-3 py-2 font-semibold text-primary-dark transition-all duration-500 hover:bg-primary-dark hover:text-primary-light">View Video</span>
-                  </a>
-                </div>
+          {Edits.map((edits, index) => (
+            <div key={edits.id} className="mx-12 relative" style={{ zIndex: Edits.length - index }}>
+              <motion.div 
+                {...ProjectCardAnimation} 
+                className="w-72 relative"
+              >
+                <Card 
+                  className={`bg-muted border-2 border-black overflow-visible ${index % 2 === 0 ? 'rotate-2' : 'rotate-[-2deg]'}`}
+                >
+                  <div className="relative h-44 w-full border-b-2 border-black overflow-hidden">
+                    <Image 
+                      src={`/images/edits/${edits.img}.png`} 
+                      alt={edits.name}
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-all duration-500 hover:scale-110"
+                    />
+                  </div>
+                  
+                  <CardContent className="p-3">
+                    <Link href={`/edits/${edits.slug}`}>
+                      <a>
+                        <div className="py-2 text-md font-bold text-black hover:text-primary transition-colors">{edits.name}</div>
+                      </a>
+                    </Link>
+                  </CardContent>
+                  
+                  <CardFooter className="flex justify-center pt-1 pb-4">
+                    <a href={edits.videos} target="_blank" rel="noreferrer">
+                      <Button variant="default" className="bg-green-400 text-black">
+                        View Video
+                      </Button>
+                    </a>
+                  </CardFooter>
+                </Card>
               </motion.div>
             </div>
           ))}
         </div>
 
-        <div className="fixed top-0 -right-1 h-screen w-1/12 bg-primary-dark" />
-        <div className="fixed top-3 -left-1 hidden h-3/4 w-1/12 bg-primary-dark md:block" />
-
         <div className="fixed bottom-40 flex flex-col items-center">
-          <span className="text-primary-light">Scroll</span>
-          <div className="absolute top-6 h-4 w-4 rotate-45 rounded border-b-4 border-r-4 border-secondary-light" />
-          <div className="absolute top-6 h-7 w-7 rotate-45 rounded border-b-4 border-r-4 border-primary-light" />
+          <span className="text-black font-bold">Scroll</span>
+          <div className="absolute top-6 h-4 w-4 rotate-45 rounded border-b-4 border-r-4 border-black" />
+          <div className="absolute top-6 h-7 w-7 rotate-45 rounded border-b-4 border-r-4 border-primary" />
         </div>
       </section>
     </Layouts>

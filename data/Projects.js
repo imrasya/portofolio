@@ -8,16 +8,18 @@ export const Projects = [
     sourceCode: 'https://deanry.my.id',
     description:
       'Majalah digital by epsiteam, this is magazine digital (online) work with 5 people team',
+    tech: ['HTML', 'CSS', 'JavaScript', 'PHP']
   },
   {
     id: 2,
-    name: 'Simple Qr Code Generator',
+    name: 'Qr Code Generator',
     slug: 'simpleqr',
     img: 'simpleqr',
     demo: 'http://qr.deanry.my.id/',
     sourceCode: 'https://github.com/imrasya/simpleqrcode',
     description:
       'Simple Qr Code Generator With Api, Source Code Original (coding nepal)',
+    tech: ['HTML', 'CSS', 'JavaScript', 'API']
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const Projects = [
     sourceCode: 'https://github.com/imrasya/tic-tac-toe',
     description:
       'Simple Game Tictactoe With Html Css And Javascript',
+    tech: ['HTML', 'CSS', 'JavaScript']
   },
   {
     id: 5,
@@ -38,5 +41,6 @@ export const Projects = [
     sourceCode: 'https://',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla alias accusantium commodi quia rerum reprehenderit similique, ipsa cupiditate vel voluptates sapiente, unde ducimus dignissimos saepe consequuntur possimus maxime voluptatibus laudantium.',
+    tech: ['Coming Soon']
   },
 ];
