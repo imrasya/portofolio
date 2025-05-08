@@ -45,12 +45,12 @@ const Contact = () => {
             <CardContent>
               {Contacts.map((contact) => (
                 <a href={contact.href} target="_blank" rel="noreferrer" key={contact.id} className="my-4 flex justify-end fill-indigo-800 transition-all duration-500 hover:fill-purple-600 hover:text-purple-600">
-                  <div className="mr-8">
-                    <h4 className="text-base font-bold text-indigo-900">{contact.name}</h4>
-                    <h3 className="text-sm text-indigo-700">{contact.value}</h3>
+                  <div className="mr-2 md:mr-8">
+                    <h4 className="text-sm md:text-base font-bold text-indigo-900">{contact.name}</h4>
+                    <h3 className="text-xs md:text-sm text-indigo-700">{contact.value}</h3>
                   </div>
-                  <div className="h-12 w-12 border-2 border-indigo-700 bg-white hover:shadow-[4px_4px_0px_0px_rgba(79,70,229,0.4)] hover:translate-y-[-2px] hover:border-indigo-800 transition-all duration-300">
-                    <svg className="p-1" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <div className="min-h-[48px] min-w-[48px] h-12 w-12 border-2 border-indigo-700 bg-white hover:shadow-[4px_4px_0px_0px_rgba(79,70,229,0.4)] hover:translate-y-[-2px] hover:border-indigo-800 transition-all duration-300 flex-shrink-0">
+                    <svg className="p-1 w-full h-full" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path d={contact.svg} />
                     </svg>
                   </div>
