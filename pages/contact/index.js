@@ -6,10 +6,12 @@ import { ContentAnimation, FadeAnimation } from '@/components/Animations';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
+import { Loader2 } from 'lucide-react';
 
 const Contact = () => {
   const [openModal, setOpenModal] = useState(false);
   const [messageAlert, setMessageAlert] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const scriptURL = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL;
@@ -17,6 +19,7 @@ const Contact = () => {
 
     const submitForm = (e) => {
       e.preventDefault();
+      setIsLoading(true);
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(() => {
           form.reset();
@@ -26,6 +29,9 @@ const Contact = () => {
         .catch(() => {
           setOpenModal(true);
           setMessageAlert(false);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     };
 
@@ -70,6 +76,7 @@ const Contact = () => {
                   id="name"
                   className="mb-2 text-sm border-2 border-purple-500 rounded-none shadow-[2px_2px_0px_0px_rgba(168,85,247,0.2)] focus:border-indigo-500 focus:shadow-[3px_3px_0px_0px_rgba(99,102,241,0.3)]"
                   placeholder="Name"
+                  aria-label="Name"
                   required
                 />
                 <Input
@@ -78,6 +85,7 @@ const Contact = () => {
                   id="email"
                   className="mb-2 text-sm border-2 border-purple-500 rounded-none shadow-[2px_2px_0px_0px_rgba(168,85,247,0.2)] focus:border-indigo-500 focus:shadow-[3px_3px_0px_0px_rgba(99,102,241,0.3)]"
                   placeholder="Email"
+                  aria-label="Email"
                   required
                 />
                 <textarea
@@ -85,10 +93,24 @@ const Contact = () => {
                   id="message"
                   className="bg-white border-2 border-purple-500 shadow-[2px_2px_0px_0px_rgba(168,85,247,0.2)] rounded-none px-3 py-2 focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(99,102,241,0.3)] focus:border-indigo-500 w-full mb-3 h-32 text-sm"
                   placeholder="Write your message..."
+                  aria-label="Write your message"
                   required
                 />
-                <Button type="submit" variant="default" size="sm" className="bg-pink-500 hover:bg-pink-600 text-white transition-colors neo-button">
-                  Send Message
+                <Button
+                  type="submit"
+                  variant="default"
+                  size="sm"
+                  disabled={isLoading}
+                  className="bg-pink-500 hover:bg-pink-600 text-white transition-colors neo-button"
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -96,9 +118,14 @@ const Contact = () => {
 
           <motion.div className={`absolute left-0 -top-12 flex w-full justify-center border-2 border-indigo-700 bg-indigo-200 py-1 shadow-[3px_3px_0px_0px_rgba(79,70,229,0.25)] transition-all duration-500 md:-left-[80%] ${!openModal ? 'opacity-0' : ''} z-20 neo-card`}>
             <p className="font-bold text-indigo-900">{messageAlert ? 'Message Sent!' : 'Sorry, Message Not Sent!'}</p>
-            <p className="absolute right-0 top-0 py-[3px] px-4 font-bold transition-all duration-500 hover:text-purple-600" onClick={() => setOpenModal(false)}>
+            <button
+              type="button"
+              className="absolute right-0 top-0 py-[3px] px-4 font-bold transition-all duration-500 hover:text-purple-600"
+              onClick={() => setOpenModal(false)}
+              aria-label="Close modal"
+            >
               x
-            </p>
+            </button>
           </motion.div>
         </motion.div>
       </section>
