@@ -6,7 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { ContentAnimation } from "@/components/Animations";
 import { CornerBracket } from "@/components/ui/CornerBracket";
-import gsap from "gsap";
+
 import dynamic from "next/dynamic";
 
 // Lazy Load Components
@@ -30,32 +30,39 @@ const Home = () => {
 
   // GSAP Entry Animation (Synchronized with Preloader)
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 2.9 });
+    let ctx;
 
-      // Hero Content (Left)
-      tl.from(".hero-content-item", {
-        y: 100,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: "power3.out",
-      });
+    import("gsap").then((gsapModule) => {
+      const gsap = gsapModule.default;
 
-      // Hero Images (Right)
-      tl.from(
-        ".hero-image-item",
-        {
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({ delay: 2.9 });
+
+        // Hero Content (Left)
+        tl.from(".hero-content-item", {
           y: 100,
           opacity: 0,
           duration: 0.5,
           stagger: 0.1,
           ease: "power3.out",
-        },
-        "-=0.8"
-      );
-    }, heroRef);
-    return () => ctx.revert();
+        });
+
+        // Hero Images (Right)
+        tl.from(
+          ".hero-image-item",
+          {
+            y: 100,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power3.out",
+          },
+          "-=0.8"
+        );
+      }, heroRef);
+    });
+
+    return () => ctx && ctx.revert();
   }, []);
 
   const handleScroll = (e, targetId) => {

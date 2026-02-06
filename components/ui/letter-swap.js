@@ -6,7 +6,7 @@ import {
   stagger,
   useAnimate,
 } from "framer-motion"
-import { debounce } from "lodash"
+import debounce from "lodash/debounce"
 
 export function LetterSwapForward({
   label,

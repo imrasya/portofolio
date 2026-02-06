@@ -247,7 +247,7 @@ const ProfileCardComponent = ({
       );
       const y = clamp(
         centerY +
-          (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+        (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
         0,
         shell.clientHeight
       );
@@ -514,16 +514,16 @@ const ProfileCardComponent = ({
                 pointerEvents: "none",
               }}
             >
-              <div className="backface-hidden duration-[120ms] absolute bottom-[-1px] left-1/2 w-full transition-transform ease-out will-change-transform">
+              <div className="backface-hidden duration-[120ms] relative bottom-[-1px] h-full w-full transition-transform ease-out will-change-transform">
                 <Image
                   src={avatarUrl}
                   alt={`${name || "User"} avatar`}
-                  fill
-                  className="object-cover"
+                  layout="fill"
+                  objectFit="cover"
                   style={{
                     transformOrigin: "50% 100%",
                     transform:
-                      "translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01))",
+                      "translateX(calc((var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01))",
                     borderRadius: cardRadius,
                   }}
                   onError={(e) => {
@@ -549,16 +549,16 @@ const ProfileCardComponent = ({
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className="flex-shrink-0 overflow-hidden rounded-full border border-white/10"
+                      className="relative flex-shrink-0 overflow-hidden rounded-full border border-white/10"
                       style={{ width: "48px", height: "48px" }}
                     >
                       <Image
                         src={miniAvatarUrl || avatarUrl}
                         alt={`${name || "User"} mini avatar`}
-                        fill
-                        className="rounded-full object-cover"
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-full"
                         style={{
-                          display: "block",
                           borderRadius: "50%",
                           pointerEvents: "auto",
                         }}
