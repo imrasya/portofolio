@@ -1,86 +1,87 @@
 module.exports = {
-    darkMode: ['class'],
-    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-  	extend: {
-  		colors: {
-  			primary: {
-  				dark: '#1b1b1b',
-  				light: '#f1f1f1',
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				dark: '#0d0d0d',
-  				light: '#999999',
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			},
-        // Neobrutalism colors
-        main: {
-          DEFAULT: "#FFFFFF",
-          foreground: "#000000",
-        },
-        "secondary-background": {
-          DEFAULT: "#f5f5f5",
-          foreground: "#000000",
-        },
-  		},
-  		fontFamily: {
-  			lexend: [
-  				'Lexend',
-  				'sans-serif'
-  			],
-        base: ['var(--font-sans)'],
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)',
-        base: "0",
-  		},
-      boxShadow: {
-        shadow: "4px 4px 0px 0px #000",
-      },
-      translate: {
-        boxShadowX: "4px",
-        boxShadowY: "4px",
-        reverseBoxShadowX: "-4px",
-        reverseBoxShadowY: "-4px",
-      },
-  	}
-  },
-  plugins: [require("tailwindcss-animate")],
+	darkMode: ['class'],
+	content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+	theme: {
+		extend: {
+			colors: {
+				primary: {
+					DEFAULT: '#A855F7',
+					light: '#F3E8FF',
+					dark: '#4C1D95'
+				},
+				secondary: {
+					DEFAULT: '#4C1D95',
+					light: '#F3E8FF',
+					dark: '#0B0812'
+				},
+				background: '#0B0812',
+				foreground: '#F3E8FF',
+				card: {
+					DEFAULT: '#161220',
+					foreground: '#F3E8FF'
+				},
+				popover: {
+					DEFAULT: '#161220',
+					foreground: '#F3E8FF'
+				},
+				muted: {
+					DEFAULT: '#161220',
+					foreground: '#94A3B8'
+				},
+				accent: {
+					DEFAULT: '#A855F7',
+					foreground: '#F3E8FF'
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				border: '#4C1D95',
+				input: '#161220',
+				ring: '#A855F7'
+			},
+			fontFamily: {
+				lexend: [
+					'Lexend',
+					'sans-serif'
+				],
+				mono: [
+					'JetBrains Mono',
+					'monospace'
+				],
+				base: ['var(--font-sans)'],
+			},
+			borderRadius: {
+				lg: '0.5rem',
+				md: '0.375rem',
+				sm: '0.25rem',
+				base: "0.25rem",
+			},
+			borderWidth: {
+				DEFAULT: '1px',
+				'0': '0',
+				'2': '2px',
+				'4': '4px',
+				'8': '8px',
+			},
+			boxShadow: {
+				shadow: "4px 4px 0px 0px #4C1D95",
+				neo: "5px 5px 0px 0px #4C1D95",
+				"neo-hover": "10px 10px 0px 0px #4C1D95",
+			},
+			backgroundImage: {
+				'scanlines': 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2))',
+			},
+			backgroundSize: {
+				'scanlines': '100% 4px',
+			},
+			translate: {
+				boxShadowX: "4px",
+				boxShadowY: "4px",
+				reverseBoxShadowX: "-4px",
+				reverseBoxShadowY: "-4px",
+			},
+		}
+	},
+	plugins: [require("tailwindcss-animate")],
 };
